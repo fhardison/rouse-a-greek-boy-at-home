@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" version="2.0">
+	<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:title>A Greek Boy At Home</dc:title>
+      <dc:creator>W.H.D. Rouse</dc:creator>
+      <dc:publisher>Blackie &amp; Son, Ltd.</dc:publisher>
+      <dc:format/>
+      <dc:date>1909</dc:date>
+      <dc:subject/>
+      <dc:description/>
+      <dc:rights>NONE</dc:rights>
+      <dc:identifier id="bookid"></dc:identifier>
+      <dc:language>el</dc:language>
+	</metadata>
+	<manifest>
+		<item href="greekboy.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+		<item href="OEBPS/front.html" id="front" media-type="application/xhtml+xml"/>
+		<item href="OEBPS/preface.html" id="preface" media-type="application/xhtml+xml"/>
+		<item href="OEBPS/toc.html" id="toc" media-type="application/xhtml+xml"/>
+		<item href="OEBPS/story1.html" id="story1" media-type="application/xhtml+xml"/>
+		<item href="OEBPS/story2.html" id="story2" media-type="application/xhtml+xml"/>
+		<item href="OEBPS/appendix.html" id="appendix" media-type="application/xhtml+xml"/>
+		<item href="OEBPS/style.css" id="css" media-type="text/css"/>
+		<item href="OEBPS/page-template.xpgt" id="page" media-type="application/vnd.adobe-page-template+xml"/>
+		<item href="OEBPS/images/ill01.png" id="ill01" media-type="image/png"/>
+		<item href="OEBPS/images/ill02.png" id="ill02" media-type="image/png"/>
+		<item href="OEBPS/images/ill03.png" id="ill03" media-type="image/png"/>
+		<item href="OEBPS/images/ill04.png" id="ill04" media-type="image/png"/>
+		<item href="OEBPS/images/ill05.png" id="ill05" media-type="image/png"/>
+		<item href="OEBPS/images/ill06.png" id="ill06" media-type="image/png"/>
+		<item href="OEBPS/images/ill07.png" id="ill07" media-type="image/png"/>
+		<item href="OEBPS/images/ill08.png" id="ill08" media-type="image/png"/>
+		<item href="OEBPS/images/ill09.png" id="ill09" media-type="image/png"/>
+		<item href="OEBPS/images/ill10.png" id="ill10" media-type="image/png"/>
+		<item href="OEBPS/images/ill11.png" id="ill11" media-type="image/png"/>
+		<item href="OEBPS/images/cover.jpg" id="cover" media-type="image/jpeg"/>		
+	</manifest>
+	<spine toc="ncx">
+		<itemref idref="front" />
+		<itemref idref="preface" />
+		<itemref idref="toc" />
+		<itemref idref="story1" />
+		<itemref idref="story2" />
+		<itemref idref="appendix"/>
+	</spine>
+	<guide>
+		<reference href="OEBPS/images/cover.jpg" title="Cover" type="cover"/>
+		<reference href="OEBPS/front.html#frontmatter" title="Title Page" type="title-page"/>
+		<reference href="OEBPS/preface.html" title="Preface" type="preface"/>
+		<reference href="OEBPS/toc.html" title="Contents" type="toc"/>
+		<reference href="OEBPS/toc.html#illlist" title="List of Illustrations" type="loi"/>
+	</guide>
+</package>

@@ -1,0 +1,110 @@
+﻿h1 {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 2em; margin-bottom: 0.5em;
+}
+
+h2,h3,h4,h5 {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 1em; margin-bottom: 0.5em;
+}
+
+table {
+	margin: 0.5em auto 0.5em auto;
+	page-break-inside: avoid;
+}
+
+.chap, #toc, #preface {
+	page-break-before: always;
+	margin-top: 1em;
+}
+
+#frontispiece, #frontmatter {
+	page-break-before: always;
+	margin-top: 1em;
+	text-align: center;
+}
+
+.ill {
+	text-align: center;
+}
+
+.sect {
+	page-break-before: always;
+	margin-top: 1em;
+}
+
+.toc1 {
+	margin-left: 0em;
+	margin-top: 0em;
+}
+.toc2 {
+	margin-left: 1em;
+}
+
+.c {
+	text-align: center;
+}
+
+.dialog {
+	margin-left: 1em;
+	text-indent: -1em;
+}
+
+.fn {
+	font-size: small;
+	margin: 0.5em 0 0.5em 1em;
+}
+
+blockquote {
+	margin: 0.5em 0 0.5em 1em;
+}
+
+.poem {
+	margin: 0.5em 0 0.5em 1em;
+}
+
+.l1 {
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-left: 1em;
+	text-indent: -1em;	
+}
+
+.l3 {
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-left: 3em;
+	text-indent: -1em;	
+}
+
+.b2 {
+	margin-left: 2em;
+	text-indent: -1em;	
+}
+
+p {
+	text-indent: 1em;
+}
+
+.noindent {
+	text-indent: 0em;
+}
+
+.e {
+	margin-bottom: 0.5em;
+	margin-left: 1em;
+	text-indent: -1em;
+}
+
+body
+{
+font-size: medium;
+line-height: 1.2em;
+margin-top: 1em;
+margin-left: 1em;
+margin-right: 2em;
+}
+
+
