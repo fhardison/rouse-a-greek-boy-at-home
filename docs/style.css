@@ -2,6 +2,8 @@ body {
   font-family: 'Noto Serif', serif;
   display: flex;
   justify-content: center;
+  background-color: #fffff8;
+  color: #111; 
 }
 .container {
   max-width: 800px;
