@@ -33,7 +33,8 @@ def convert_line_numbers(line, line_count):
             #print(lcount)
             #line_count += lcount
             #print(line_count)
-    return (line, line_count)
+
+    return (line.replace('  ', ' '), line_count) #clean up any double spaces left by line/page num markers
 
 def make_title(raw):
     return raw.replace('greek-boy-ch', 'Chapter ').replace('.md', '').replace("..\\..\\src\\", '')
