@@ -16,20 +16,23 @@ def convert_line_numbers(line, line_count):
     print(line_nums)
     if not(line_nums):
         return (line, line_count)
-    lcount = line_count
     for line_num in line_nums:
         #handle line numbers
         if '.' in line_num:
-            if line_num[0] == '.':
-                lcount = int(line_num.replace('.', ''))
-            else:
-                _, lcount = line_num.split('.')
-            line = line.replace("{" + str(line_num)+ "}",make_line_num(line_count + lcount))
+            #if line_num[0] == '.':
+            #    lcount = int(line_num.replace('.', ''))
+            #else:
+            #    _, lcount = map(lambda x: int(x), line_num.split('.'))
+            line_count += 5
+            line = line.replace("{" + str(line_num)+ "}", make_line_num(line_count))
         #remove page refs
         else:
+            #if last_line_count > line_count:
+            #    line_count = last_line_count
             line = line.replace("{" + str(line_num)+ "}",'')
-            print(line_count)
-            line_count += lcount
+            #print(lcount)
+            #line_count += lcount
+            #print(line_count)
     return (line, line_count)
 
 def make_title(raw):
