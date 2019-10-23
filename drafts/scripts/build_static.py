@@ -6,10 +6,22 @@ import re
 import mistletoe
 
 
+
+def make_margin_note(id, content, css_class='', marker=''):
+    return f"""<label for="ln-{id}" class="margin-toggle {css_class}">{marker}</label>
+<input type="checkbox" id="ln-{id}" class="margin-toggle"/>
+<span class="marginnote">{content}</span>"""
+
 def make_line_num(num):
-    return f"""<label for="ln-{num}" class="margin-toggle"></label>
-<input type="checkbox" id="ln-{num}" class="margin-toggle"/>
-<span class="marginnote"><i>{num}</i></span>"""
+    return make_margin_note(num, f"<i>{num}</i>")
+
+def make_sidenote(line, fn_content, fn_num):
+    return line.replace(f" [{fn_num}]",
+        make_margin_note(fn_num, fn_content, css_class='sidenote-number'), 1)
+        # only make one replacement in case of multiple fns with same fn_num
+        #  which should not happen, but who knows
+
+
 
 def convert_line_numbers(line, line_count):
     line_nums = re.findall(r'\{(\d*\.?\d+)\}', line)
@@ -19,20 +31,11 @@ def convert_line_numbers(line, line_count):
     for line_num in line_nums:
         #handle line numbers
         if '.' in line_num:
-            #if line_num[0] == '.':
-            #    lcount = int(line_num.replace('.', ''))
-            #else:
-            #    _, lcount = map(lambda x: int(x), line_num.split('.'))
             line_count += 5
             line = line.replace("{" + str(line_num)+ "}", make_line_num(line_count))
         #remove page refs
         else:
-            #if last_line_count > line_count:
-            #    line_count = last_line_count
             line = line.replace("{" + str(line_num)+ "}",'')
-            #print(lcount)
-            #line_count += lcount
-            #print(line_count)
 
     return (line.replace('  ', ' '), line_count) #clean up any double spaces left by line/page num markers
 
@@ -40,7 +43,7 @@ def make_title(raw):
     return raw.replace('greek-boy-ch', 'Chapter ').replace('.md', '').replace("..\\..\\src\\", '')
 
 
-WORK_LIST = glob.glob(os.path.join('..','..', 'src', '*.md')) #['greek-boy-ch03.md']
+WORK_LIST = glob.glob(os.path.join('..','..', 'src', '*.md'))
 
 for WORK in WORK_LIST:
     print(WORK)
@@ -73,36 +76,35 @@ for WORK in WORK_LIST:
 
     with open(SRC, encoding="UTF-8") as f:
         with open(DEST, "w", encoding="UTF-8") as g:
-            prev_contents = None
             print(HEADER, file=g)
             line_counter = 0
+            cons = dict()
+            fn_buffer = []
             for line in f:
                 parts = line.strip().split(maxsplit=1)
-                ref = parts[0].split(".")
-                contents = parts[1]
+                ref = parts[0]
+                content = parts[1]
+                if not(content in cons):
+                    if "fn" in ref:
+                        fn_buffer.append(ref)
+                    cons[ref] = content
+                else:
+                    print("Multiple lines with same ref number in file!")
+            for fn in fn_buffer:
+                ref_parts = fn.split('.')
+                fn_num = ref_parts[-1]
+                ref_num = '.'.join(ref_parts[:-1])
+                cons[ref_num] = make_sidenote(cons[ref_num], cons[fn], fn_num)
+                del cons[fn] #remove FN after processing
+            for ref, content in cons.items():
                 #handle headers
-                if "#" in contents:
-                    if prev_contents:
-                        if prev_contents.count('#') == contents.count('#'):
-                            prev_contents = prev_contents + "<br/>" + contents.replace('#', '')
-                        else:
-                            prev_contents = contents
-                    else:
-                        if prev_contents:
-                            header_lvl = prev_contents.count('#')
-                            print(f"<h{header_lvl}>{prev_contents.replace('#', '').strip()}</h{header_lvl}>", file=g)
-                            header_lvl = None
-                        prev_contents = contents
+                if "#" in content:
+                    header_lvl = content.count('#')
+                    print(f"<h{header_lvl}>{content.replace('#', '').strip()}</h{header_lvl}>", file=g)
                 #handle content
                 else:
-                    #actualy typeset headers
-                    if prev_contents:
-                        header_lvl = prev_contents.count('#')
-                        print(f"<h{header_lvl}>{prev_contents.replace('#', '').strip()}</h{header_lvl}>", file=g)
-                        header_lvl = None
                     #convert line numbers
-                    contents, line_counter = convert_line_numbers(contents, line_counter)
-                    print(f"{mistletoe.markdown(contents)}", file=g)
-                    prev_contents = None
+                    content, line_counter = convert_line_numbers(content, line_counter)
+                    print(f"{mistletoe.markdown(content)}", file=g)
             print(FOOTER, file=g)
 print("Done!")
