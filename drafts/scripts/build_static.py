@@ -36,12 +36,16 @@ class StaticRenderer():
             renderer = self.renderers[key]
             for ref in buffer:
                 renderer.render(ref, cons)
+        self.clear_buffers()
 
     def render_lines(self, cons, printf):
         for line in cons:
             for renderer in self.line_renderers:
                 line = renderer.render("", line)
             printf(line)
+
+    def clear_buffers(self):
+        self.buffers = {}
 
 class LineNumberRenderer(Renderer):
     def __init__(self):
