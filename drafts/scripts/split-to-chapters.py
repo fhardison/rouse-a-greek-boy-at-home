@@ -19,6 +19,13 @@ def strip_extra_blank_lines(chapter):
 
 def reformat_page_and_line_numbers(chapter, page, line):
 	def process_p_tag(p, page, line):
+		# check for footnotes
+		try:
+			if 'fn' in p['class']:
+				return page, line
+		except KeyError:
+			pass
+
 		new_lines = []
 		for child in p.children:
 			# print(child)
@@ -28,6 +35,10 @@ def reformat_page_and_line_numbers(chapter, page, line):
 				page = child['id'].strip('p')
 				child.string = ''
 				line = 1
+			elif child.name == 'a':
+				# link to a footnote, do nothing but save the text
+				new_lines.append(child.string)
+				continue
 			else:
 				# must be plain text, divide into lines by line break
 				if child.string is None:
@@ -57,6 +68,10 @@ def reformat_page_and_line_numbers(chapter, page, line):
 			page, line = process_p_tag(tag, page, line)
 
 		else:
+			# ignore illustrations
+			if tag.name == 'div' and 'ill' in tag['class']:
+				continue
+
 			try:
 				for child in tag.children:
 					if child.name == 'span':
