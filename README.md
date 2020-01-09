@@ -6,7 +6,16 @@ Comments and corrections welcome!
 
 This work is licensed under a [CC BY SA licence](https://creativecommons.org/licenses/by-sa/4.0/).
 
-## Note on file format
+# Note on repo structure
+
+There are four directories for files depending on their status:
+
+* `todo` files that noone has started proofing
+* `drafts` files that are currently being proofed by someone. Feel free to create your own sub directory if you like.
+* `src` files that are done
+* `docs` html formatted file for viewing on project github pages site.
+
+# Note on file format
 
 The file format for the data files is based on a common format being used by the [greek-texts project](https://jtauber.github.io/greek-texts/).
 
