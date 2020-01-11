@@ -120,6 +120,8 @@ def make_title(raw):
     return raw.replace('greek-boy-ch', 'Chapter ').replace('.md', '').replace(os.path.join("..", "..", "src") + "/", '')
 
 
+
+
 WORK_LIST = glob.glob(os.path.join('..','..', 'src', '*.md'))
 
 for WORK in WORK_LIST:
@@ -171,4 +173,28 @@ for WORK in WORK_LIST:
             print(len(cons))
             renderer.render_lines(list(cons.values()), lambda x: print(f"{mistletoe.markdown(x)}", file=g))
             print(FOOTER, file=g)
+
+print("Generating index.html")
+
+html_files = glob.glob(os.path.join('..','..', 'docs', 'greek-boy-ch*'))
+template = ''
+with open(os.path.join('..', '..', 'templates', 'index.html'), 'r', encoding="UTF-8") as f:
+    template = f.read()
+
+link_list = []
+
+for f in html_files:
+    fname = f.replace("../../docs/", '')
+    ch_num = re.search(r'greek-boy-ch(\d+).html', fname)[1]
+
+    link_list.append(f'\t\t<li><a href="{fname}">Chapter {ch_num}</a></li>')
+
+
+
+
+
+with open(os.path.join('..', '..', 'docs', 'index.html'), 'w', encoding="UTF-8") as f:
+    f.write(template.replace('$available$', '\n' + "\n".join(link_list)))
+
+
 print("Done!")
