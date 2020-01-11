@@ -68,8 +68,11 @@ class LineNumberRenderer(Renderer):
         for line_num in line_nums:
             #handle line numbers
             if '.' in line_num:
-                self.line_counter += 5
-                line = line.replace("{" + str(line_num)+ "}", self.make_line_num(self.line_counter))
+                #self.line_counter += 5
+                if int(line_num.split('.')[1]) % 5 == 0:
+                    line = line.replace("{" + str(line_num)+ "}", self.make_line_num(line_num))
+                else:
+                    line = line.replace("{" + str(line_num)+ "}", '')
             #remove page refs
             else:
                 line = line.replace("{" + str(line_num)+ "}",'')
