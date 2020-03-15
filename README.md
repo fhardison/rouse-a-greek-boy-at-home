@@ -6,6 +6,8 @@ Comments and corrections welcome!
 
 This work is licensed under a [CC BY SA licence](https://creativecommons.org/licenses/by-sa/4.0/).
 
+
+
 # Note on repo structure
 
 There are four directories for files depending on their status:
@@ -14,6 +16,54 @@ There are four directories for files depending on their status:
 * `drafts` files that are currently being proofed by someone. Feel free to create your own sub directory if you like.
 * `src` files that are done
 * `docs` html formatted file for viewing on project github pages site.
+
+# Progress
+
+**13/41**
+
+| File | Proofed | Being checked by |
+|:--- |:--- |:---|
+| greek-boy-ch02.md | Y |  |
+| greek-boy-ch04.md | Y |  |
+| greek-boy-ch06.md | Y |  |
+| greek-boy-ch07.md | Y |  |
+| greek-boy-ch08.md | Y |  |
+| greek-boy-ch09.md | Y |  |
+| greek-boy-ch10.md | Y |  |
+| greek-boy-ch11.md | Y |  |
+| greek-boy-ch12.md | Y |  |
+| greek-boy-ch13.md | Y |  |
+| greek-boy-ch14.md | Y |  |
+| greek-boy-ch15.md | Y |  |
+| greek-boy-ch16-17.md | N | Fletcher |
+| greek-boy-ch18.md | Y |  |
+| greek-boy-ch19.md | N |  |
+| greek-boy-ch20.md | N |  |
+| greek-boy-ch21.md | N |  |
+| greek-boy-ch22.md | N |  |
+| greek-boy-ch23.md | N |  |
+| greek-boy-ch24.md | N |  |
+| greek-boy-ch25.md | N |  |
+| greek-boy-ch26.md | N |  |
+| greek-boy-ch27.md | N |  |
+| greek-boy-ch28.md | N |  |
+| greek-boy-ch29.md | N |  |
+| greek-boy-ch30.md | N |  |
+| greek-boy-ch31.md | N |  |
+| greek-boy-ch32.md | N |  |
+| greek-boy-ch33.md | N |  |
+| greek-boy-ch34.md | N |  |
+| greek-boy-ch35.md | N |  |
+| greek-boy-ch36.md | N |  |
+| greek-boy-ch37.md | N |  |
+| greek-boy-ch38.md | N |  |
+| greek-boy-ch39.md | N |  |
+| greek-boy-ch40.md | N |  |
+| greek-boy-ch41.md | N |  |
+| greek-boy-ch42.md | N |  |
+| greek-boy-ch43.md | N |  |
+| greek-boy-ch44.md | N |  |
+| greek-boy-ch45.md | N |  |
 
 # Note on file format
 
