@@ -34,9 +34,9 @@ There are four directories for files depending on their status:
 | greek-boy-ch12.md | Y |  |
 | greek-boy-ch13.md | Y |  |
 | greek-boy-ch14.md | Y |  |
-| greek-boy-ch15.md | Y |  |
+| greek-boy-ch15.md | Y | Chris |
 | greek-boy-ch16-17.md | N | Fletcher |
-| greek-boy-ch18.md | Y |  |
+| greek-boy-ch18.md | Y | Chris |
 | greek-boy-ch19.md | N |  |
 | greek-boy-ch20.md | N |  |
 | greek-boy-ch21.md | N |  |
@@ -78,12 +78,12 @@ Each line of a file begins with an text part address in the form of `Chapter-num
 This project also needed line numbers which appear in the text with the following format `{page-number.line-number}`. The page number corresponds to the page number in the PDF file. Thus in the following example which is the first line of the fourth chapter, the line corresponds to lines 16, 17, and 18 found on page 11 of the PDF file.
 
 ```
-4.1 {11.16} ὥρα νῦν λέγειν σοι τὰ περὶ τῆς οἰκίας. μικρὰ {11.17} μέν ἐστιν ἡ οἰκία ἡμῶν, μικροτάτη μὲν οὖν· τί μήν; {11.18} οὐ γὰρ πολλοί ἐσμεν, οὐδὲ πλούσιοι.
+4.1 {11.16} ὥρα νῦν λέγειν σοι τὰ περὶ τῆς οἰκίας. μικρὰ {11.17} μέν ἐστιν ἡ οἰκία ἡμῶν, μικροτάτη μὲν οὖν· τί μήν; {11.18} οὐ γὰρ πολλοί ἐσμεν, οὐδὲ πλούσιοι.
 ```
 
 Finally, this project needed footnotes which have the following format. The foot content is marked by giving it the same Chapter and Line number as the line it relates with the addition of `.fn` and a number to the text part address. The location of the footnote in its line is marked by an inline anchor formed by adding the `.fn` and number in square brackets. In the following example line `3.10.fn1.add` is the footnote content which corresponds to the part of line `3.10` marked by the anchor `[fn1.add]`. The particular pieces added after the Chapter and Line number don't matter too much as long as they are consistent and match the inline footnote anchor.
 
 ```
-3.10 ... τὸ δ’ αὐτὸ ποιοῦμεν καὶ ἡμᾶς [fn1.add]· οὐδὲ θαυμάζει ....
+3.10 ... τὸ δ’ αὐτὸ ποιοῦμεν καὶ ἡμᾶς [fn1.add]· οὐδὲ θαυμάζει ....
 3.10.fn1.add > ἡμεῖς
 ```
