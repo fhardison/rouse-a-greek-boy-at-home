@@ -37,15 +37,15 @@ There are four directories for files depending on their status:
 | greek-boy-ch15.md | Y | Chris |
 | greek-boy-ch16-17.md | N | Fletcher |
 | greek-boy-ch18.md | Y | Chris |
-| greek-boy-ch19.md | N |  |
-| greek-boy-ch20.md | N |  |
-| greek-boy-ch21.md | N |  |
-| greek-boy-ch22.md | N |  |
-| greek-boy-ch23.md | N |  |
+| greek-boy-ch19.md | N | Chris |
+| greek-boy-ch20.md | N | Chris |
+| greek-boy-ch21.md | N | Chris |
+| greek-boy-ch22.md | N | Chris |
+| greek-boy-ch23.md | N | Chris |
 | greek-boy-ch24.md | N |  |
-| greek-boy-ch25.md | N |  |
-| greek-boy-ch26.md | N |  |
-| greek-boy-ch27.md | N |  |
+| greek-boy-ch25.md | N | Chris |
+| greek-boy-ch26.md | N | Chris |
+| greek-boy-ch27.md | N | Chris |
 | greek-boy-ch28.md | N |  |
 | greek-boy-ch29.md | N |  |
 | greek-boy-ch30.md | N |  |
