@@ -26,7 +26,7 @@ There several scripts to help with the processing of the files. They're all loca
 
 # Progress
 
-**13/41**
+**19/43**
 
 | File | Proofed | Being checked by |
 |:--- |:--- |:---|
