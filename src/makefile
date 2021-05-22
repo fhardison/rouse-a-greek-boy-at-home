@@ -6,6 +6,4 @@ OUTPUT=$(MDFILES:.md=.html)
 .md.html:
 	pandoc $< -s --template ../templates/rouse.html -o ../docs/$@ 
 
-
-
 all: $(OUTPUT)

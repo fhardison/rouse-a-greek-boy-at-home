@@ -1,13 +1,15 @@
-import re, os
+import sys, re, os
 from greek_normalisation.utils import (
      nfd, nfc, nfkc,
      strip_accents, count_accents, strip_last_accent, grave_to_acute,
      strip_last_accent_if_two, breathing_check
  )
 
-# just the names of the files. when they are read ".." is prefixed
-FILES = ["greek-boy-ch02.md"]
-
+ # provide a list of files as arguments to the call or add the names of the files in the else branch. When the files are read ".." is prefixed.
+if len(sys.argv) > 1:
+    FILES = sys.argv[1: ]
+else:
+    FILES = ["greek-boy-ch02.md"]
 
 
 # a check must accept three arguments.

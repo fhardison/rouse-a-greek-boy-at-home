@@ -17,9 +17,16 @@ There are four directories for files depending on their status:
 * `src` files that are done
 * `docs` html formatted file for viewing on project github pages site.
 
+# Scripts
+There several scripts to help with the processing of the files. They're all located in `drafts/scripts/`.
+* `add_line_numbers.py <FILE_NAME>` - takes file (from draft folder), reformats it to the defined line format and saves it to the `src/<FILE_NAME>` folder.
+* `build_static.py` - takes the `md` files from `src` folder and generates proper `HTML` files in the `docs` folder.
+* `run-checks.py <opt: FILE_NAME_1, FILE_NAME_2,...>` - check the files provided as args or hardcoded in the script for proper encoding
+* `split-to-chapters.py` - ???
+
 # Progress
 
-**13/41**
+**19/43**
 
 | File | Proofed | Being checked by |
 |:--- |:--- |:---|
@@ -38,14 +45,14 @@ There are four directories for files depending on their status:
 | greek-boy-ch16-17.md | N | Fletcher |
 | greek-boy-ch18.md | Y | Chris |
 | greek-boy-ch19.md | N | Chris |
-| greek-boy-ch20.md | N | Chris |
-| greek-boy-ch21.md | N | Chris |
-| greek-boy-ch22.md | N | Chris |
-| greek-boy-ch23.md | N | Chris |
+| greek-boy-ch20.md | N |  |
+| greek-boy-ch21.md | Y | Chris |
+| greek-boy-ch22.md | Y | Chris |
+| greek-boy-ch23.md | Y | Chris |
 | greek-boy-ch24.md | N |  |
-| greek-boy-ch25.md | N | Chris |
-| greek-boy-ch26.md | N | Chris |
-| greek-boy-ch27.md | N | Chris |
+| greek-boy-ch25.md | Y | Chris |
+| greek-boy-ch26.md | Y | Chris |
+| greek-boy-ch27.md | Y | Chris |
 | greek-boy-ch28.md | N |  |
 | greek-boy-ch29.md | N |  |
 | greek-boy-ch30.md | N |  |
