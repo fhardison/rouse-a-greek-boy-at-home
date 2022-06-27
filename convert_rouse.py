@@ -37,17 +37,21 @@ with open(IFILE, 'r', encoding="UTF-8") as f, open('.\\src\\rouse_text.txt', 'w'
             PARAGRAPH += 1
             LINE = 0
             for sentence in line.split("> "):
+                s = sentence.replace("\\'", "'").replace('\\"', '"').strip()
+                if s == '':
+                    continue
                 LINE += 1
-                print(f"{SECTION}.{PARAGRAPH}.{LINE}.text > {sentence.strip()}", file=g)
+                print(f"{SECTION}.{PARAGRAPH}.{LINE}.text > {s}", file=g)
         else:
             if not line.strip():
                 continue
             PARAGRAPH += 1
-            sentences = [x for x in sub(r'([.?!])', r'\1@@@', line.strip()).split('@@@') if x.strip()]
+            sentences = [x for x in sub(r'([.?!][^*])', r'\1@@@', line.strip()).split('@@@') if x.strip()]
             LINE = 0
             for sentence in sentences:
                 LINE += 1
-                print(f"{SECTION}.{PARAGRAPH}.{LINE}.text {sentence}", file=g)
+                s = sentence.replace("\\'", "'").replace('\\"', '"').strip()
+                print(f"{SECTION}.{PARAGRAPH}.{LINE}.text {s}", file=g)
             print('', file=g)
 
 

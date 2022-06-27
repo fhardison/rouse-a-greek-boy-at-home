@@ -28,10 +28,11 @@ HEADER = """<!DOCTYPE html>
     <meta charset="utf-8">
     <link href="default.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alpheios-components@latest/dist/style/style-components.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
   <body class="default">
-    <div class="container alpheios-enabled">"""
+    <div class="container alpheios-enabled" lang="grc">"""
 
 FOOTER = """</div>
     <script type="text/javascript">
@@ -54,20 +55,23 @@ FOOTER = """</div>
 </html>"""
 
 def do_markdown(sent):
-    if '*' in sent:
-        sent = re.sub(r'(\w)\*', r'\1</em>',  sent)
-        sent = re.sub(r'\*(\w)', r'<em>\1',  sent)
+    text = markdown.markdown(sent)
 
-    if '**' in sent:
-        sent = re.sub(r'(\w)\*\*', r'\1</strong>',  sent)
-        sent = re.sub(r'\*\*(\w)', r'<strong>\1',  sent)
+    return text.replace('<p>', '').replace('</p>', '').replace("\\'", "'")
+    # if '*' in sent:
+    #     sent = re.sub(r'(\w)\*', r'\1</em>',  sent)
+    #     sent = re.sub(r'\*(\w)', r'<em>\1',  sent)
+
+    # if '**' in sent:
+    #     sent = re.sub(r'(\w)\*\*', r'\1</strong>',  sent)
+    #     sent = re.sub(r'\*\*(\w)', r'<strong>\1',  sent)
     
-    if sent.startswith('> '):
-        sent = '<blockquote>' + sent.replace('>', '') + "</blockquote>"
-    elif sent.strip() == '>':
-        sent = '<blockquote>' + sent.replace('>', '') + "</blockquote>"
+    # if sent.startswith('> '):
+    #     sent = '<blockquote>' + sent.replace('>', '') + "</blockquote>"
+    # elif sent.strip() == '>':
+    #     sent = '<blockquote>' + sent.replace('>', '') + "</blockquote>"
     
-    return sent
+    # return sent
 
 with open('.\\docs\\greekboy.html', 'w', encoding='UTF-8') as g:
     print(HEADER, file=g)

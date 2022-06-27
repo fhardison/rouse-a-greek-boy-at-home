@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="grc">
-    <title>Rouse vocab</title>
+    <title>Rouse vocabulary</title>
     <meta charset="utf-8">
     <link href="default.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alpheios-components@latest/dist/style/style-components.min.css"/>
+
     <script src="vocab.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -21,20 +23,20 @@
     <div class="container">
         <h1>Rouse's A Greek Boy at Home Vocabulary</h1>
 
-        <p><em>A Greek Boy at Home vocabulary converted to GLTP format by Dave Maddock, Fletcher Hardison, Chris Jasinski, and Nathan Binns.</em></p>
+        <p><em>A Greek Boy at Home vocabulary converted to GLTP format by Dave Maddock, Fletcher Hardison, Chris Jasinski, and Nathan Binns with <a href="https://alpheios.net/">Alpheios</a> reading tools added.</em></p>
       
         <h2>Search</h1>
 
         <div class="search-area">
             <div class="search-box">
-                <form>
+                <form onsubmit="return false">
                     <label for="sbox">Search</label><br />
                     <input type="text" id="sbox" /> <br />
                     <input type="button" id="sbtn" value="Search"></input>
                 </form>
 
             </div>
-            <ul id="search-results"></ul>
+            <ul id="search-results" class="alpheios-enabled" lang="grc"></ul>
         </div>
 
       <p>
@@ -44,20 +46,20 @@
     <script>
         const options = {
         includeScore: false,
-        keys: ['head', 'deff']}
+        threshold: 0.35,
+        ignoreLocation: true,
+        useExtendedSearch:true,
+        keys: ['head', 'deff']};
 
-        const fuse = new Fuse(vocab, options)
+        const fuse = new Fuse(vocab, options);
 
         const sbox = document.getElementById('sbox');
         const btn = document.getElementById('sbtn');
         const sresults = document.getElementById('search-results');
-
-        btn.addEventListener('click', function() {
-            console.log('hi')
+        
+        function doSearch() {
             let results = fuse.search(sbox.value);
-
             sresults.innerHTML = '';
-
             results.forEach(function (item) {
                 let x = item['item'];
                 let l = document.createElement("li");
@@ -67,16 +69,43 @@
                 w.classList.add('word');
                 w.textContent = x['head'];
                 d.textContent =': ' +  x['deff'];
-
                 l.appendChild(w);
                 l.appendChild(d);
                 sresults.appendChild(l);
 
                 //console.log(x)
                 //sresults.innerHTML = sresults.innerHTML + '\n<li><span class="word">' + x['head'] + '</span>: <span class="deff">' + x['deff'] + "</span>";
-            })
-            
+            });
+        }
+
+        btn.addEventListener('click', function() {
+            doSearch();
         });
+
+        function doEnterSearch(e) {
+            if (e.keyCode == 13) {
+                doSearch();
+                return false;
+            }
+        }
+
+        sbox.addEventListener('keydown', doEnterSearch);
+
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+      import ("https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/alpheios-embedded.min.js").then(embedLib => {
+          window.AlpheiosEmbed.importDependencies({ 
+          mode: 'cdn'
+          }).then(Embedded => {
+          new Embedded({clientId: "thrax-grammar-fhard"}).activate();
+          }).catch(e => {
+          console.error(`Import of Alpheios embedded library dependencies failed: ${e}`)
+          })
+
+      }).catch(e => {
+          console.error(`Import of Alpheios Embedded library failed: ${e}`)
+      });
+    });
     </script>
   </body>
 </html>
