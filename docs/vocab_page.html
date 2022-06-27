@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="grc">
+    <title>Rouse vocab</title>
+    <meta charset="utf-8">
+    <link href="default.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script src="vocab.js"></script>
+  </head>
+  <body class="default">
+    <style>
+        .container {
+            content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+        }
+
+        .word {
+            margin: 0.35em 0;
+        }
+    </style>
+    <div class="container">
+        <h1>Rouse's A Greek Boy at Home Vocabulary</h1>
+
+        <p><em>A Greek Boy at Home vocabulary converted to GLTP format by Dave Maddock, Fletcher Hardison, Chris Jasinski, and Nathan Binns.</em></p>
+      
+        <h2>Search</h1>
+
+        <div class="search-area">
+            <div class="search-box">
+                <form>
+                    <label for="sbox">Search</label><br />
+                    <input type="text" id="sbox" /> <br />
+                    <input type="button" id="sbtn" value="Search"></input>
+                </form>
+
+            </div>
+            <ul id="search-results"></ul>
+        </div>
+
+      <p>
+        The source is available at <a href="https://github.com/fhardison/rouse-a-greek-boy-at-home">https://github.com/fhardison/rouse-a-greek-boy-at-home</a>.
+      </p>
+    </div>
+    <script>
+        const options = {
+        includeScore: false,
+        keys: ['head', 'deff']}
+
+        const fuse = new Fuse(vocab, options)
+
+        const sbox = document.getElementById('sbox');
+        const btn = document.getElementById('sbtn');
+        const sresults = document.getElementById('search-results');
+
+        btn.addEventListener('click', function() {
+            console.log('hi')
+            let results = fuse.search(sbox.value);
+
+            sresults.innerHTML = '';
+
+            results.forEach(function (item) {
+                let x = item['item'];
+                let l = document.createElement("li");
+                let w = document.createElement('span');
+                let d = document.createElement('span');
+                d.classList.add('deff');
+                w.classList.add('word');
+                w.textContent = x['head'];
+                d.textContent =': ' +  x['deff'];
+
+                l.appendChild(w);
+                l.appendChild(d);
+                sresults.appendChild(l);
+
+                //console.log(x)
+                //sresults.innerHTML = sresults.innerHTML + '\n<li><span class="word">' + x['head'] + '</span>: <span class="deff">' + x['deff'] + "</span>";
+            })
+            
+        });
+    </script>
+  </body>
+</html>
