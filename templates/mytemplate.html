@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{% block lang %}{% endblock %}">
+  <head>
+    <title>{% title %}</title>
+    <meta charset="utf-8">
+    <link href="default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alpheios-components@latest/dist/style/style-components.min.css"/>
+  </head>
+  <body class="{% block body_class %}default{% endblock %}">
+    <div class="container">
+        <h1>Rouse's A Greek Boy at Home</h1>
+
+        <p><em>A Greek Boy at Home converted to GLTP format by Dave Maddock, Fletcher Hardison, Chris Jasinski, and Nathan Binns.</em></p>
+      
+        <ul>
+            <li><a href="greekboy.html">A Greek Boy at Home</a></li>
+        </ul>
+
+      <p>
+        The source is available at <a href="https://github.com/fhardison/rouse-a-greek-boy-at-home">https://github.com/fhardison/rouse-a-greek-boy-at-home</a>.
+      </p>
+    </div>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
+      import ("https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/alpheios-embedded.min.js").then(embedLib => {
+          window.AlpheiosEmbed.importDependencies({ 
+          mode: 'cdn'
+          }).then(Embedded => {
+          new Embedded({clientId: "rouse-greek-boy"}).activate();
+          }).catch(e => {
+          console.error(`Import of Alpheios embedded library dependencies failed: ${e}`)
+          })
+
+      }).catch(e => {
+          console.error(`Import of Alpheios Embedded library failed: ${e}`)
+      })
+      });
+  </script>
+  </body>
+</html>
