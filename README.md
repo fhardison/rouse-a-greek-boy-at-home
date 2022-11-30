@@ -24,6 +24,10 @@ There are four directories for files depending on their status:
 * `src` files that are done
 * `docs` html formatted file for viewing on project github pages site.
 
+# Note
+
+The current text online is from `src/rouse_corected.md`. 
+
 
 # Progress
 

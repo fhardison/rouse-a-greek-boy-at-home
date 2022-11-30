@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="grc">
+  <head>
+    <title>Greek Boy at Home</title>
+    <meta charset="utf-8">
+    <link href="default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alpheios-components@latest/dist/style/style-components.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body class="default">
+    <div class="container alpheios-enabled" lang="grc">
+        $body$
+    </div>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
+      import ("https://cdn.jsdelivr.net/npm/alpheios-embedded@latest/dist/alpheios-embedded.min.js").then(embedLib => {
+          window.AlpheiosEmbed.importDependencies({ 
+          mode: 'cdn'
+          }).then(Embedded => {
+          new Embedded({clientId: "thrax-grammar-fhard"}).activate();
+          }).catch(e => {
+          console.error(`Import of Alpheios embedded library dependencies failed: ${e}`)
+          })
+
+      }).catch(e => {
+          console.error(`Import of Alpheios Embedded library failed: ${e}`)
+      })
+      });
+  </script>
+  </body>
+</html>
