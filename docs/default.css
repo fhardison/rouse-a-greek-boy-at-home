@@ -1,9 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700&amp;subset=greek,greek-ext');
 
+html {
+  max-width: 70ch;
+  padding: 3em 1em;
+  margin: auto;
+  line-height: 1.75;
+  font-size: 1.25em;
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 3em 0 1em;
+}
+
+
+
 body {
   font-family: 'Noto Serif', serif;
   display: flex;
   justify-content: center;
+  max-width: 38rem;
+  padding: 2rem;
+  margin: auto;
 }
 .container {
   max-width: 800px;
@@ -21,7 +39,7 @@ a:hover {
   color: #F33;
   text-decoration: underline;
 }
-h1 {
+h1, h2, h3 {
   text-align: center;
 }
 body.index h1 {
@@ -113,3 +131,41 @@ li {
   vertical-align: baseline;
   top: -0.5em;
 }
+
+
+.toc ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc li {
+  display: inline;
+}
+
+.title-page {
+  
+  justify-content: center;
+  width:100%;
+  text-align: center;
+}
+.title {
+  font-size: 2.5em;
+  margin: auto;
+}
+.subtitle {
+  font-size: 2em;
+}
+.author, .author-name, .author-title, .date {
+  margin: auto;
+}
+
+.author-name {
+  font-size: 1.5em;
+}
+
+.jumpto {
+  margin-top:2em;
+  margin-bottom: 2em;
+}
+
